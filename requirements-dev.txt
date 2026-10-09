@@ -1,0 +1,11 @@
+-r requirements.txt
+pytest==9.1.1
+pytest-xdist==3.8.0
+pyflakes==3.4.0
+mypy==2.3.1
+# tools/build_exe.py: the game frozen into one executable.
+pyinstaller==6.22.2
+# The harness and the tools that compare against the original draw with these;
+# the game does not.
+numpy
+pillow

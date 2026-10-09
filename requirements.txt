@@ -1,0 +1,2 @@
+# What the game needs to run. Nothing else belongs here.
+pyxel==2.9.5

@@ -1,0 +1,276 @@
+Which character and which sprite pattern is what, stage by stage.
+Written by tools/make_free_assets.py.
+
+== stage1 (plays by stage 1's rules)
+
+characters:
+  0x01  letter 0
+  0x02  letter 1
+  0x03  letter 2
+  0x04  letter 3
+  0x05  letter 4
+  0x06  letter 5
+  0x07  letter 6
+  0x08  letter 7
+  0x09  letter 8
+  0x0A  letter 9
+  0x0B  band: ship
+  0x0C  letter H
+  0x0D  letter I
+  0x0E  letter P
+  0x10  meter  
+  0x11  meter -
+  0x12  meter B
+  0x13  meter D
+  0x14  meter H
+  0x15  meter L
+  0x16  meter M
+  0x17  meter O
+  0x18  meter P
+  0x19  meter R
+  0x1A  meter S
+  0x1B  meter T
+  0x1C  meter  
+  0x1D  meter -
+  0x1E  meter B
+  0x1F  meter D
+  0x20  meter H
+  0x21  meter L
+  0x22  meter M
+  0x23  meter O
+  0x24  meter P
+  0x25  meter R
+  0x26  meter S
+  0x27  meter T
+  0x28  letter H
+  0x29  letter I
+  0x2A  letter J
+  0x2B  letter K
+  0x2C  letter L
+  0x2D  letter M
+  0x2E  letter N
+  0x2F  letter O
+  0x30  letter P
+  0x31  letter Q
+  0x32  letter R
+  0x33  letter S
+  0x34  letter T
+  0x35  letter U
+  0x36  letter V
+  0x37  letter W
+  0x38  letter X
+  0x39  letter Y
+  0x3A  letter Z
+  0x43  rock
+  0x44  ground's top
+  0x45  roof's edge
+  0x46  slope up
+  0x47  slope down
+  0x48  roof coming down
+  0x49  roof going up
+  0x4A  hatch, dome left
+  0x4B  hatch, dome right
+  0x4C  roof hatch, dome left
+  0x4D  roof hatch, dome right
+  0x4E  hatch's body
+  0x4F  hatch's door
+  0x50  roof hatch's door
+  0x51  hatch, shot
+  0x52  brick (breaks)
+  0x53  brick (breaks)
+  0x54  crystal's shot, left
+  0x55  crystal's shot, right
+  0x56  crystal's shot, left
+  0x57  crystal's shot, right
+  0x58  crater, left
+  0x59  crater, right
+  0x5A  launcher, missile
+  0x5B  launcher, mount
+  0x5C  launcher, double (0)
+  0x5D  launcher, double (1)
+  0x5E  launcher, double (2)
+  0x5F  launcher, double (3)
+  0x60  launcher blown up 1
+  0x61  launcher blown up 2
+  0x62  core
+  0x63  core's edge
+  0x64  core's edge
+  0x65  core's edge
+  0x66  core's edge
+  0x67  core's corner
+  0x68  core's corner
+  0x69  core's corner
+  0x6A  core's corner
+  0x6B  core's eye (0)
+  0x6C  core's eye (1)
+  0x6D  core's eye (2)
+  0x6E  core's eye (3)
+  0x6F  core's eye (4)
+  0x70  core's eye (5)
+  0x71  core's mouth, open (0)
+  0x72  core's mouth, open (1)
+  0x73  core's mouth, open (2)
+  0x74  core's mouth, open (3)
+  0x75  core's mouth, open (4)
+  0x76  core's mouth, open (5)
+  0x77  star
+  0x78  star
+  0x79  shot
+  0x7A  shot
+  0x7B  shot
+  0x7C  shot
+  0x7D  laser
+  0x7E  laser
+  0x7F  laser
+  0x80  laser
+  0x81  enemy shot, drawn
+  0x82  enemy shot, drawn
+  0x83  enemy shot, drawn
+  0x84  enemy shot, drawn
+  0x85  flier (0)
+  0x86  flier (0)
+  0x87  flier (0)
+  0x88  flier (0)
+  0x89  flier (0)
+  0x8A  flier (0)
+  0x8B  flier (0)
+  0x8C  flier (0)
+  0x8D  bug (0)
+  0x8E  bug (0)
+  0x8F  bug (0)
+  0x90  bug (0)
+  0x91  bug (0)
+  0x92  bug (0)
+  0x93  bug (0)
+  0x94  bug (0)
+  0x95  bug (0)
+  0x96  bug (0)
+  0x97  bug (0)
+  0x98  bug (0)
+  0x99  cannon (0)
+  0x9A  cannon (0)
+  0x9B  cannon (0)
+  0x9C  cannon (0)
+  0x9D  cannon (0)
+  0x9E  cannon (0)
+  0x9F  cannon (0)
+  0xA0  cannon (0)
+  0xA1  cannon (0)
+  0xA2  cannon (0)
+  0xA3  cannon (0)
+  0xA4  cannon (0)
+  0xA5  cannon (0)
+  0xA6  cannon (0)
+  0xA7  cannon (0)
+  0xA8  cannon (0)
+  0xA9  capsule (0)
+  0xAA  capsule (0)
+  0xAB  capsule (0)
+  0xAC  capsule (0)
+  0xAD  capsule (0)
+  0xAE  capsule (0)
+  0xAF  capsule (0)
+  0xB0  capsule (0)
+  0xB1  a ship more (0)
+  0xB2  a ship more (0)
+  0xB3  a ship more (0)
+  0xB4  a ship more (0)
+  0xB5  blast (0)
+  0xB6  blast (0)
+  0xB7  blast (0)
+  0xB8  blast (0)
+  0xB9  blast (0)
+  0xBA  blast (0)
+  0xBB  blast (0)
+  0xBC  blast (0)
+  0xBD  blast (0)
+  0xBE  blast (0)
+  0xBF  blast (0)
+  0xC0  blast (0)
+  0xC1  blast (0)
+  0xC2  blast (0)
+  0xC3  blast (0)
+  0xC4  blast (0)
+  0xC5  blast (0)
+  0xC6  blast (0)
+  0xC7  blast (0)
+  0xC8  blast (0)
+  0xC9  blast (0)
+  0xCA  blast (0)
+  0xCB  blast (0)
+  0xCC  blast (0)
+  0xCD  blast (0)
+  0xCE  blast (0)
+  0xCF  blast (0)
+  0xD0  blast (0)
+  0xD1  blast (0)
+  0xD2  blast (0)
+  0xD3  blast (0)
+  0xD4  blast (0)
+  0xD5  tree
+  0xD6  tree, small
+  0xD7  tree, hanging
+  0xD8  tree, small, hanging
+
+sprite patterns (16x16, four numbers each):
+  0x00  ship
+  0x04  ship's cockpit and flame
+  0x08  ship
+  0x0C  ship's cockpit and flame
+  0x10  ship
+  0x14  ship's cockpit and flame
+  0x18  double
+  0x1C  missile, rolling
+  0x20  missile, falling
+  0x24  shield
+  0x28  shield
+  0x2C  shield
+  0x30  shield
+  0x34  shield
+  0x38  shield
+  0x3C  ship blinking
+  0x40  option
+  0x44  option
+  0x48  ship blowing up
+  0x4C  ship blowing up
+  0x50  ship blowing up
+  0x54  ship blowing up
+  0x58  ship blowing up
+  0x5C  ship blowing up
+  0x60  ship blowing up
+  0x64  ship blowing up
+  0x68  blast
+  0x6C  blast
+  0x70  blast
+  0x74  blast
+  0x78  enemy shot
+  0x7C  walker, floor
+  0x80  walker, floor
+  0x84  walker, floor
+  0x88  walker, floor
+  0x8C  walker, floor
+  0x90  walker, floor
+  0x94  walker, roof
+  0x98  walker, roof
+  0x9C  walker, roof
+  0xA0  walker, roof
+  0xA4  walker, roof
+  0xA8  walker, roof
+  0xAC  spinner
+  0xB0  spinner
+  0xB4  spinner
+  0xB8  spinner
+  0xBC  spinner
+  0xC0  dart
+  0xC4  dart
+  0xC8  dart
+  0xCC  jumper
+  0xD0  jumper
+  0xD4  jumper
+  0xD8  jumper
+  0xDC  drone
+  0xE0  drone
+  0xE4  drone
+  0xE8  drone
+  0xEC  rock
+

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+
+# The IDE's, local to a checkout.
+.idea/
+
+# Nothing out of the cartridge is ever committed: the ROM, what the tools dump
+# from it and the pictures they draw live outside the repo
+# or here, ignored, if a tool is pointed at the checkout by mistake.
+*.rom
+*.png
+# ...but the free assets' pictures are the game's own, drawn by
+# tools/make_free_assets.py and by hand, and are committed.
+!assets/free/*.png
+tools/harness/out/
+*.log
+
+# What tools/build_exe.py makes. The with-rom zip carries the cartridge.
+build/
+dist/

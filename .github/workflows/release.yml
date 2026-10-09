@@ -1,0 +1,81 @@
+# The zip a player gets, built on the two systems it is built for, with no ROM
+# in it: the player puts their own beside the binary. (The private zip with the
+# ROM is made by hand, `tools/build_exe.py --add-rom`, and never here.)
+#
+# Windows cannot be cross-compiled from Linux, so the `.exe` comes off a Windows
+# runner or it does not exist. Two ways in: `workflow_dispatch` by hand, and a
+# `v*` tag, which also opens a **draft** release with both zips: publishing is a
+# decision and a tag is not.
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version for the zip's name (default: git describe)"
+        required: false
+        default: ""
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Not `ubuntu-latest`: the binary links the runner's glibc, and an
+          # older runner's build also starts on an older machine.
+          - os: ubuntu-22.04
+            system: linux
+          - os: windows-latest
+            system: windows
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # `git describe` names the zip, and needs the tags
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      # Pyxel's Linux extension links the system SDL2; without it the build
+      # succeeds and the binary dies on `libSDL2-2.0.so.0`.
+      - if: matrix.system == 'linux'
+        run: sudo apt-get update && sudo apt-get install -y libsdl2-2.0-0
+
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements-dev.txt
+
+      - run: python -m pytest tests -q -n auto
+
+      # Builds, then runs the binary's `--selftest`: with no ROM on a runner
+      # that is the bundle alone (every module, Pyxel opened headless).
+      - name: Build
+        run: python tools/build_exe.py ${{ inputs.version && format('--version {0}', inputs.version) || '' }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nemesio-${{ matrix.system }}
+          path: dist/*.zip
+          if-no-files-found: error
+          retention-days: 14
+
+  draft:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: zips
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: zips/*.zip

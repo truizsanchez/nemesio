@@ -1,0 +1,16 @@
+The free assets of nemesio -- every file in this folder: the pictures, the maps,
+the stage and shared tables, the texts, the music and the sound effects -- are
+Copyright (c) 2026 truizsanchez, and are licensed under the Creative Commons
+Attribution 4.0 International licence (CC BY 4.0):
+
+    https://creativecommons.org/licenses/by/4.0/
+    https://creativecommons.org/licenses/by/4.0/legalcode
+
+You may share and adapt them for any purpose, even commercially, as long as you
+give appropriate credit ("nemesio free assets, by truizsanchez, CC BY 4.0"),
+link to the licence, and say if you changed them.
+
+No picture, map, text, tune or sound in them is copied out of Konami's cartridge:
+they were drawn, composed and worked out for this project
+(tools/make_free_assets.py generates them). The tables play by the original's
+rules, and a few small ones share many of their values with the original's.

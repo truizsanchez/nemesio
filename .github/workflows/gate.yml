@@ -1,0 +1,37 @@
+# The gate, on every pull request and every push to main: the suite, the two
+# checkers and the self-tests AGENTS.md lists, run where nobody's own checkout
+# can make them pass. No ROM on a runner: the cartridge's side is measured here,
+# by hand (tools/compare_play.py, tools/check_rom.py).
+name: gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      # Pyxel's extension links the system SDL2; see `release.yml`.
+      - run: sudo apt-get update && sudo apt-get install -y libsdl2-2.0-0
+
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements-dev.txt
+
+      - run: python -m pytest tests -q -n auto
+      - run: python -m mypy
+      - run: python -m pyflakes game tools tests main.py
+      - run: python main.py --free --selftest
+      - run: python main.py --check-assets
